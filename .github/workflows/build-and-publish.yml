@@ -42,24 +42,10 @@ jobs:
             type=sha,prefix={{branch}}-
             type=raw,value=latest,enable={{is_default_branch}}
 
-      - name: Install Pack CLI
-        uses: buildpacks/github-actions/setup-pack@v5.7.4
-
-      - name: Build with Cloud Native Buildpacks
-        run: |
-          pack build ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
-            --builder heroku/builder:22 \
-            --path . \
-            --publish
-        if: github.event_name != 'pull_request'
-
-      - name: Tag additional images
-        if: github.event_name != 'pull_request'
-        run: |
-          TAGS="${{ steps.meta.outputs.tags }}"
-          for TAG in $TAGS; do
-            if [[ "$TAG" != *":latest" ]]; then
-              docker tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest $TAG
-              docker push $TAG
-            fi
-          done
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
