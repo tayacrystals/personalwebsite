@@ -7,7 +7,7 @@ name = "BP_WEB_SERVER"
 value = "bun"
 
 [[build.buildpacks]]
-id = "gcr.io/paketo-buildpacks/bun"
+id = "paketo-buildpacks/bun"
 
 [[build.buildpacks]]
-id = "gcr.io/paketo-buildpacks/bun-install"
+id = "paketo-buildpacks/bun-install"
