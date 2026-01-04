@@ -5,14 +5,14 @@ FROM oven/bun:1
 WORKDIR /app
 
 # Copy package files for better layer caching
-COPY package.json bun.lock ./
+COPY package.json bun.loc[k] ./
 
 # Install dependencies
 RUN bun install
 
 # Copy application files
 COPY index.tsx tsconfig.json ./
-COPY home ./home
+COPY home/ ./home/
 
 # Expose the default Bun serve port
 EXPOSE 3000
