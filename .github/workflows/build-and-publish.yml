@@ -48,7 +48,7 @@ jobs:
       - name: Build with Cloud Native Buildpacks
         run: |
           pack build ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest \
-            --builder paketobuildpacks/builder-jammy-base \
+            --builder heroku/builder:22 \
             --path . \
             --publish
         if: github.event_name != 'pull_request'
