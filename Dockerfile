@@ -5,7 +5,7 @@ FROM oven/bun:1
 WORKDIR /app
 
 # Copy package files for better layer caching
-COPY package.json bun.loc[k] ./
+COPY package.json bun.lock ./
 
 # Install dependencies
 RUN bun install
