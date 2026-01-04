@@ -1,0 +1,13 @@
+[[build.env]]
+name = "BP_NODE_RUN_SCRIPTS"
+value = ""
+
+[[build.env]]
+name = "BP_WEB_SERVER"
+value = "bun"
+
+[[build.buildpacks]]
+id = "gcr.io/paketo-buildpacks/bun"
+
+[[build.buildpacks]]
+id = "gcr.io/paketo-buildpacks/bun-install"
