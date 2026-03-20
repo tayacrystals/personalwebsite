@@ -10,7 +10,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: tayadev/personalwebsite
+  IMAGE_NAME: tayacrystals/personalwebsite
 
 jobs:
   build-and-push:
