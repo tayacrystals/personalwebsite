@@ -1,6 +1,6 @@
 {
   "name": "web25",
-  "module": "index.ts",
+  "module": "build.tsx",
   "type": "module",
   "private": true,
   "devDependencies": {
@@ -12,10 +12,9 @@
   },
   "dependencies": {
     "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "server": "react-dom/server"
+    "react-dom": "^19.1.1"
   },
   "scripts": {
-    "start": "bun run --watch index.tsx"
+    "build": "bun build.tsx"
   }
 }
